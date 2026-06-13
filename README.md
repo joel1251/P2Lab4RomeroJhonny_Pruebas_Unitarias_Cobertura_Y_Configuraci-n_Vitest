@@ -118,7 +118,7 @@ Test Files  7 passed (7)
 | Herramienta | Uso | Estado |
 |-------------|-----|--------|
 | Git / GitHub | ✅ Repositorio inicializado y versionado
-| Vercel | Hosting y despliegue continuo | ⚠️ `vercel.json` configurado, sin URL pública |
+| Vercel | ✅ Hosting y despliegue continuo | ✅ https://p2-lab4-romero-jhonny-pruebas-unita.vercel.app/ |
 
 ---
 
