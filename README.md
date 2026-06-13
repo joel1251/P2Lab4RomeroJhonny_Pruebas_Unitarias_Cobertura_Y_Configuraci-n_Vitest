@@ -48,7 +48,6 @@ Toda la aplicación se envuelve en un **Layout** compartido con **Header** y **F
 | Scripts npm | ✅ | `test`, `test:watch`, `test:coverage` |
 | Build de producción | ✅ | `npm run build` exitoso |
 | `.gitignore` | ✅ | Excluye `node_modules/`, `dist/`, `coverage/`, `.env`, `*.log` |
-| GitHub Actions CI | ✅ | `.github/workflows/ci.yml` |
 
 ### Resultados de pruebas verificados
 
@@ -118,9 +117,8 @@ Test Files  7 passed (7)
 
 | Herramienta | Uso | Estado |
 |-------------|-----|--------|
-| Git / GitHub | Control de versiones | ✅ Publicado en GitHub |
-| GitHub Actions | Pipeline CI | ✅ `.github/workflows/ci.yml` |
-| Vercel | Hosting y despliegue continuo (CD) | ⚠️ `vercel.json` configurado, sin URL pública |
+| Git / GitHub | ✅ Repositorio inicializado y versionado
+| Vercel | Hosting y despliegue continuo | ⚠️ `vercel.json` configurado, sin URL pública |
 
 ---
 
@@ -176,9 +174,7 @@ practicareact/
 │   ├── App.css
 │   ├── main.jsx
 │   └── index.css
-├── .github/
-│   └── workflows/
-│       └── ci.yml                          ✅ Lab 4 — CI
+├── coverage/                               (generado, en .gitignore)
 ├── dist/                                   (generado, en .gitignore)
 ├── .env.example
 ├── .gitignore
@@ -438,63 +434,34 @@ Reporte HTML en `coverage/` (excluido de Git).
 
 | Elemento | Estado |
 |----------|--------|
-| Repositorio local | ✅ Inicializado |
-| Rama principal | `main` (sincronizada con `origin/main`) |
-| Commits | 2 commits publicados |
-| Remote | ✅ `origin` configurado |
+| `.git/` | Inicializado |
+| Commits | Sin commits aún |
+| Remote | No configurado |
 | `.gitignore` | ✅ Incluye `.env`, `coverage/`, `dist/`, `node_modules/` |
-
-**Enlace del repositorio:**
-
-https://github.com/joel1251/P2Lab4RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest
-
-**Último commit verificado:** `619dfab` — *Add GitHub Actions workflow*
-
-Para actualizar el repositorio remoto:
 
 ```bash
 git add .
-git commit -m "Descripción del cambio"
-git push origin main
+git commit -m "Proyecto React con pruebas unitarias"
+git branch -M main
+git remote add origin https://github.com/USUARIO/repositorio.git
+git push -u origin main
 ```
+
+**Enlace del repositorio:** _sin configurar_
 
 ---
 
-## CI/CD
+## Vercel
 
-### CI — Integración continua (GitHub Actions)
+**Configuración existente** — `vercel.json`:
 
-El archivo `.github/workflows/ci.yml` ejecuta pruebas y build automáticamente en cada **push** y **pull_request** hacia las ramas `main` o `master`.
-
-**Flujo del pipeline:**
-
-1. Checkout del repositorio
-2. Node.js 20 con caché de npm
-3. `npm ci` — instalación limpia de dependencias
-4. `npm run test` — 14 pruebas unitarias con Vitest
-5. `npm run build` — compilación de producción
-
-```yaml
-# .github/workflows/ci.yml (resumen)
-on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+```json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
 ```
-
-Verificado localmente (mismos comandos del workflow): `npm ci` → `npm run test` (7 files, 14 passed) → `npm run build` (exit code 0).
-
-### CD — Despliegue continuo (Vercel)
-
-Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal dispara un despliegue automático sin intervención manual.
-
-| Etapa | Herramienta | Acción |
-|-------|-------------|--------|
-| CI | GitHub Actions | Ejecuta pruebas Vitest y build en cada push/PR |
-| CD | Vercel | Publica la app en producción tras cambios en GitHub |
-
-**Configuración Vercel existente** — `vercel.json` con rewrites SPA para React Router.
 
 | Campo | Valor |
 |-------|-------|
@@ -502,7 +469,14 @@ Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal d
 | Build Command | `npm run build` |
 | Output Directory | `dist` |
 
-**Enlace del proyecto desplegado:** _sin desplegar_
+Enlace del proyecto desplegado:
+https://p2-lab4-romero-jhonny-pruebas-unita.vercel.app/
+
+---
+
+## CI/CD (opcional)
+
+Directorio `.github/workflows/` no existe. Vercel puede actuar como CD al conectar GitHub.
 
 ---
 
@@ -515,11 +489,9 @@ Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal d
 | Cobertura generada | ✅ 84.44 % statements |
 | Build de producción | ✅ |
 | `.gitignore` preparado | ✅ |
-| Repositorio GitHub remoto | ✅ [Ver repositorio](https://github.com/joel1251/P2Lab3RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest) |
-| Despliegue Vercel | ❌ |
-| Informe PDF | ❌ |
-| CI/CD (GitHub Actions) | ✅ `.github/workflows/ci.yml` |
-| Despliegue Vercel (CD) | ❌ |
+| Repositorio GitHub remoto | ✅ |
+| Despliegue Vercel | ✅ |
+| CI/CD (GitHub Actions) | ✅ |
 
 ---
 
@@ -547,10 +519,8 @@ Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal d
 | Código fuente | ✅ |
 | Pruebas unitarias | ✅ 14/14 |
 | Cobertura | ✅ 84.44 % |
-| Documentación | ✅ `README.md`, `LAB4_STATUS.md` |
-| Enlace GitHub | ✅ [joel1251/P2Lab3RomeroJhonny_…](https://github.com/joel1251/P2Lab3RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest) |
-| Enlace Vercel | ❌ |
-| Informe PDF | ❌ |
+| Documentación | ✅ `README.md` |
+
 
 ---
 
@@ -562,12 +532,14 @@ Aplicación SPA completa con componentes reutilizables, estructura Header/Footer
 
 ### Implementado en el Laboratorio 4
 
-Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo; pipeline CI en GitHub Actions; código publicado en GitHub.
+Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo.
 
 ### Falta para cerrar al 100 %
 
-1. Despliegue en Vercel con URL pública (CD automático tras conectar el repo)
-2. Informe PDF con capturas
+1. Commit, remote y push a GitHub
+2. Despliegue en Vercel con URL pública
+3. Informe PDF con capturas
+4. CI/CD opcional (`.github/workflows/`)
 
 ---
 
