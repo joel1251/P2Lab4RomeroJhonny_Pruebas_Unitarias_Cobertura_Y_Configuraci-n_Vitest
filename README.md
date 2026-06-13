@@ -118,7 +118,7 @@ Test Files  7 passed (7)
 
 | Herramienta | Uso | Estado |
 |-------------|-----|--------|
-| Git / GitHub | Control de versiones | ⚠️ `.git/` inicializado, sin remote |
+| Git / GitHub | Control de versiones | ✅ Publicado en GitHub |
 | GitHub Actions | Pipeline CI | ✅ `.github/workflows/ci.yml` |
 | Vercel | Hosting y despliegue continuo (CD) | ⚠️ `vercel.json` configurado, sin URL pública |
 
@@ -438,20 +438,25 @@ Reporte HTML en `coverage/` (excluido de Git).
 
 | Elemento | Estado |
 |----------|--------|
-| `.git/` | Inicializado |
-| Commits | Sin commits aún |
-| Remote | No configurado |
+| Repositorio local | ✅ Inicializado |
+| Rama principal | `main` (sincronizada con `origin/main`) |
+| Commits | 2 commits publicados |
+| Remote | ✅ `origin` configurado |
 | `.gitignore` | ✅ Incluye `.env`, `coverage/`, `dist/`, `node_modules/` |
+
+**Enlace del repositorio:**
+
+https://github.com/joel1251/P2Lab3RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest
+
+**Último commit verificado:** `619dfab` — *Add GitHub Actions workflow*
+
+Para actualizar el repositorio remoto:
 
 ```bash
 git add .
-git commit -m "Proyecto React con pruebas unitarias"
-git branch -M main
-git remote add origin https://github.com/USUARIO/repositorio.git
-git push -u origin main
+git commit -m "Descripción del cambio"
+git push origin main
 ```
-
-**Enlace del repositorio:** _sin configurar_
 
 ---
 
@@ -510,7 +515,7 @@ Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal d
 | Cobertura generada | ✅ 84.44 % statements |
 | Build de producción | ✅ |
 | `.gitignore` preparado | ✅ |
-| Repositorio GitHub remoto | ❌ |
+| Repositorio GitHub remoto | ✅ [Ver repositorio](https://github.com/joel1251/P2Lab3RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest) |
 | Despliegue Vercel | ❌ |
 | Informe PDF | ❌ |
 | CI/CD (GitHub Actions) | ✅ `.github/workflows/ci.yml` |
@@ -543,7 +548,7 @@ Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal d
 | Pruebas unitarias | ✅ 14/14 |
 | Cobertura | ✅ 84.44 % |
 | Documentación | ✅ `README.md`, `LAB4_STATUS.md` |
-| Enlace GitHub | ❌ |
+| Enlace GitHub | ✅ [joel1251/P2Lab3RomeroJhonny_…](https://github.com/joel1251/P2Lab3RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest) |
 | Enlace Vercel | ❌ |
 | Informe PDF | ❌ |
 
@@ -557,13 +562,12 @@ Aplicación SPA completa con componentes reutilizables, estructura Header/Footer
 
 ### Implementado en el Laboratorio 4
 
-Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo; pipeline CI en GitHub Actions.
+Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo; pipeline CI en GitHub Actions; código publicado en GitHub.
 
 ### Falta para cerrar al 100 %
 
-1. Commit, remote y push a GitHub (activará CI automáticamente)
-2. Despliegue en Vercel con URL pública (CD automático tras push)
-3. Informe PDF con capturas
+1. Despliegue en Vercel con URL pública (CD automático tras conectar el repo)
+2. Informe PDF con capturas
 
 ---
 
