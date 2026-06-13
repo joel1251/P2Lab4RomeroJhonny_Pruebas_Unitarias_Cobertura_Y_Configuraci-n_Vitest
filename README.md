@@ -446,7 +446,7 @@ Reporte HTML en `coverage/` (excluido de Git).
 
 **Enlace del repositorio:**
 
-https://github.com/joel1251/P2Lab3RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest
+https://github.com/joel1251/P2Lab4RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest
 
 **Último commit verificado:** `619dfab` — *Add GitHub Actions workflow*
 
