@@ -435,8 +435,8 @@ Reporte HTML en `coverage/` (excluido de Git).
 | Elemento | Estado |
 |----------|--------|
 | `.git/` | Inicializado |
-|Commits | ✅ Realizados|
-|Remote | ✅ Configurado|
+|Commits | ✅ Realizados |
+|Remote | ✅ Configurado |
 | `.gitignore` | ✅ Incluye `.env`, `coverage/`, `dist/`, `node_modules/` |
 
 ```bash
@@ -447,7 +447,8 @@ git remote add origin https://github.com/USUARIO/repositorio.git
 git push -u origin main
 ```
 
-Enlace del repositorio | ✅ Configurado
+Enlace del repositorio:
+https://github.com/joel1251/P2Lab4RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest
 
 ---
 
@@ -476,7 +477,9 @@ https://p2-lab4-romero-jhonny-pruebas-unita.vercel.app/
 
 ## CI/CD
 
-GitHub Actions implementado mediante .github/workflows/ci.yml.
+GitHub Actions implementado mediante:
+
+.github/workflows/ci.yml
 
 Pipeline:
 - npm ci
