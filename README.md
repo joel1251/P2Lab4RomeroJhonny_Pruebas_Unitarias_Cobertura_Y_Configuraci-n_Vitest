@@ -117,7 +117,7 @@ Test Files  7 passed (7)
 
 | Herramienta | Uso | Estado |
 |-------------|-----|--------|
-| Git / GitHub | ✅ Repositorio inicializado y versionado
+| Git / GitHub | ✅ Repositorio inicializado y versionado |✅ https://github.com/joel1251/P2Lab4RomeroJhonny_Pruebas_Unitarias_Cobertura_Y_Configuraci-n_Vitest |
 | Vercel | ✅ Hosting y despliegue continuo | ✅ https://p2-lab4-romero-jhonny-pruebas-unita.vercel.app/ |
 
 ---
