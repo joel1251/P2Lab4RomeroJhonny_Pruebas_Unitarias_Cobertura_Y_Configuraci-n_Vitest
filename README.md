@@ -435,8 +435,8 @@ Reporte HTML en `coverage/` (excluido de Git).
 | Elemento | Estado |
 |----------|--------|
 | `.git/` | Inicializado |
-| Commits | Sin commits aún |
-| Remote | No configurado |
+|Commits | ✅ Realizados|
+|Remote | ✅ Configurado|
 | `.gitignore` | ✅ Incluye `.env`, `coverage/`, `dist/`, `node_modules/` |
 
 ```bash
@@ -447,7 +447,7 @@ git remote add origin https://github.com/USUARIO/repositorio.git
 git push -u origin main
 ```
 
-**Enlace del repositorio:** _sin configurar_
+Enlace del repositorio | ✅ Configurado
 
 ---
 
@@ -474,10 +474,17 @@ https://p2-lab4-romero-jhonny-pruebas-unita.vercel.app/
 
 ---
 
-## CI/CD (opcional)
+## CI/CD
 
-Directorio `.github/workflows/` no existe. Vercel puede actuar como CD al conectar GitHub.
+GitHub Actions implementado mediante .github/workflows/ci.yml.
 
+Pipeline:
+- npm ci
+- npm test
+- npm run build
+
+CD:
+- Despliegue automático mediante Vercel.
 ---
 
 ## Estado actual del laboratorio
@@ -520,6 +527,8 @@ Directorio `.github/workflows/` no existe. Vercel puede actuar como CD al conect
 | Pruebas unitarias | ✅ 14/14 |
 | Cobertura | ✅ 84.44 % |
 | Documentación | ✅ `README.md` |
+|Repositorio GitHub | ✅|
+|Aplicación desplegada en Vercel | ✅ |
 
 
 ---
@@ -534,12 +543,7 @@ Aplicación SPA completa con componentes reutilizables, estructura Header/Footer
 
 Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo.
 
-### Falta para cerrar al 100 %
 
-1. Commit, remote y push a GitHub
-2. Despliegue en Vercel con URL pública
-3. Informe PDF con capturas
-4. CI/CD opcional (`.github/workflows/`)
 
 ---
 
