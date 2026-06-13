@@ -1,0 +1,43 @@
+.item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    border: 1px solid rgba(90, 42, 27, 0.1);
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fffdf9 0%, #f9f2ec 100%);
+    box-shadow: 0 14px 28px rgba(90, 42, 27, 0.08);
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(90, 42, 27, 0.1);
+    color: #5a2a1b;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+}
+
+.body {
+    min-width: 0;
+}
+
+.name {
+    margin: 0 0 4px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #2d1b15;
+}
+
+.description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #5f4e46;
+    line-height: 1.5;
+}

@@ -1,0 +1,133 @@
+.nosotros-page {
+    display: grid;
+    gap: 28px;
+}
+
+.nosotros-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+    gap: 22px;
+    padding: 28px;
+    border-radius: 28px;
+    border: 1px solid rgba(90, 42, 27, 0.08);
+    background: linear-gradient(135deg, rgba(255, 251, 246, 0.96), rgba(243, 233, 224, 0.95));
+    box-shadow: 0 20px 40px rgba(90, 42, 27, 0.12);
+}
+
+.section-label,
+.section-heading span,
+.quote-title {
+    margin: 0;
+    color: #8b5d4d;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.nosotros-hero h1,
+.section-heading h2 {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    color: #2d1b15;
+}
+
+.nosotros-hero h1 {
+    margin-top: 8px;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1.08;
+}
+
+.lead,
+.quote-card p:last-child {
+    margin: 0;
+    color: #5f4e46;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.lead {
+    margin-top: 16px;
+    max-width: 62ch;
+}
+
+.quote-card {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 22px;
+    border: 1px solid rgba(90, 42, 27, 0.1);
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 14px 28px rgba(90, 42, 27, 0.08);
+}
+
+.nosotros-section {
+    display: grid;
+    gap: 18px;
+}
+
+.section-heading {
+    display: grid;
+    gap: 6px;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.principle-card {
+    display: grid;
+    gap: 10px;
+    padding: 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(90, 42, 27, 0.1);
+    background: linear-gradient(180deg, #fffdf9 0%, #f8f2ec 100%);
+    box-shadow: 0 14px 28px rgba(90, 42, 27, 0.08);
+}
+
+.principle-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    background: rgba(90, 42, 27, 0.1);
+    color: #5a2a1b;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.principle-card p {
+    margin: 0;
+    color: #5f4e46;
+    line-height: 1.6;
+}
+
+.materias-list {
+    display: grid;
+    gap: 14px;
+}
+
+@media (max-width: 900px) {
+    .nosotros-hero,
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .nosotros-hero {
+        padding: 20px;
+        border-radius: 22px;
+    }
+}

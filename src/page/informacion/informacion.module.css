@@ -1,0 +1,92 @@
+/* =========================================
+   PÁGINA INFORMACIÓN — Composición y layout
+   ========================================= */
+
+/* Contenedor general */
+.pageInfo {
+    text-align: left;
+}
+
+/* ---- Separación semántica: Card de persona y Formulario ---- */
+/* Son dos elementos de distinto propósito.
+   Actualmente aparecen uno encima del otro sin separación visual.
+   Un margin-bottom en la Card crea la zona de separación. */
+.pageInfo h1 {
+    margin-bottom: 16px;
+}
+
+/* ---- Formulario: agrupación visual del bloque de entrada ---- */
+.formulario {
+    display: grid;
+    gap: 16px;
+    max-width: 420px;
+    /* Separación respecto al componente Card que viene antes */
+    margin: 28px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid #e0d8d2; /* separa semánticamente Card del formulario */
+}
+
+/* Labels */
+.formulario label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #3e1d12;
+    gap: 5px;
+}
+
+/* Título del formulario */
+.formulario h2 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+/* Campos de entrada */
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #c8bdb6;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: #1a1a1a;
+    background-color: #faf7f5;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #5a2a1b;
+    background-color: #fff;
+}
+
+/* Botón */
+.formulario button {
+    padding: 9px 20px;
+    background-color: #5a2a1b;
+    color: #f0ebe7;
+    border: 1px solid #5a2a1b;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: start;
+    letter-spacing: 0.01em;
+}
+
+.formulario button:hover {
+    background-color: #3e1d12;
+    border-color: #3e1d12;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .formulario {
+        max-width: 100%;
+    }
+}
