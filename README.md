@@ -488,6 +488,7 @@ Pipeline:
 
 CD:
 - Despliegue automático mediante Vercel.
+
 ---
 
 ## Estado actual del laboratorio
@@ -530,8 +531,8 @@ CD:
 | Pruebas unitarias | ✅ 14/14 |
 | Cobertura | ✅ 84.44 % |
 | Documentación | ✅ `README.md` |
-|Repositorio GitHub | ✅|
-|Aplicación desplegada en Vercel | ✅ |
+| Repositorio GitHub | ✅ |
+| Aplicación desplegada en Vercel | ✅ |
 
 
 ---
