@@ -48,6 +48,7 @@ Toda la aplicación se envuelve en un **Layout** compartido con **Header** y **F
 | Scripts npm | ✅ | `test`, `test:watch`, `test:coverage` |
 | Build de producción | ✅ | `npm run build` exitoso |
 | `.gitignore` | ✅ | Excluye `node_modules/`, `dist/`, `coverage/`, `.env`, `*.log` |
+| GitHub Actions CI | ✅ | `.github/workflows/ci.yml` |
 
 ### Resultados de pruebas verificados
 
@@ -117,8 +118,9 @@ Test Files  7 passed (7)
 
 | Herramienta | Uso | Estado |
 |-------------|-----|--------|
-| Git / GitHub | ✅ Repositorio inicializado y versionado
-| Vercel | Hosting y despliegue continuo | ⚠️ `vercel.json` configurado, sin URL pública |
+| Git / GitHub | Control de versiones | ⚠️ `.git/` inicializado, sin remote |
+| GitHub Actions | Pipeline CI | ✅ `.github/workflows/ci.yml` |
+| Vercel | Hosting y despliegue continuo (CD) | ⚠️ `vercel.json` configurado, sin URL pública |
 
 ---
 
@@ -174,7 +176,9 @@ practicareact/
 │   ├── App.css
 │   ├── main.jsx
 │   └── index.css
-├── coverage/                               (generado, en .gitignore)
+├── .github/
+│   └── workflows/
+│       └── ci.yml                          ✅ Lab 4 — CI
 ├── dist/                                   (generado, en .gitignore)
 ├── .env.example
 ├── .gitignore
@@ -451,17 +455,41 @@ git push -u origin main
 
 ---
 
-## Vercel
+## CI/CD
 
-**Configuración existente** — `vercel.json`:
+### CI — Integración continua (GitHub Actions)
 
-```json
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
+El archivo `.github/workflows/ci.yml` ejecuta pruebas y build automáticamente en cada **push** y **pull_request** hacia las ramas `main` o `master`.
+
+**Flujo del pipeline:**
+
+1. Checkout del repositorio
+2. Node.js 20 con caché de npm
+3. `npm ci` — instalación limpia de dependencias
+4. `npm run test` — 14 pruebas unitarias con Vitest
+5. `npm run build` — compilación de producción
+
+```yaml
+# .github/workflows/ci.yml (resumen)
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 ```
+
+Verificado localmente (mismos comandos del workflow): `npm ci` → `npm run test` (7 files, 14 passed) → `npm run build` (exit code 0).
+
+### CD — Despliegue continuo (Vercel)
+
+Al conectar el repositorio de GitHub con Vercel, cada push a la rama principal dispara un despliegue automático sin intervención manual.
+
+| Etapa | Herramienta | Acción |
+|-------|-------------|--------|
+| CI | GitHub Actions | Ejecuta pruebas Vitest y build en cada push/PR |
+| CD | Vercel | Publica la app en producción tras cambios en GitHub |
+
+**Configuración Vercel existente** — `vercel.json` con rewrites SPA para React Router.
 
 | Campo | Valor |
 |-------|-------|
@@ -470,12 +498,6 @@ git push -u origin main
 | Output Directory | `dist` |
 
 **Enlace del proyecto desplegado:** _sin desplegar_
-
----
-
-## CI/CD (opcional)
-
-Directorio `.github/workflows/` no existe. Vercel puede actuar como CD al conectar GitHub.
 
 ---
 
@@ -491,7 +513,8 @@ Directorio `.github/workflows/` no existe. Vercel puede actuar como CD al conect
 | Repositorio GitHub remoto | ❌ |
 | Despliegue Vercel | ❌ |
 | Informe PDF | ❌ |
-| CI/CD (GitHub Actions) | ❌ opcional |
+| CI/CD (GitHub Actions) | ✅ `.github/workflows/ci.yml` |
+| Despliegue Vercel (CD) | ❌ |
 
 ---
 
@@ -534,14 +557,13 @@ Aplicación SPA completa con componentes reutilizables, estructura Header/Footer
 
 ### Implementado en el Laboratorio 4
 
-Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo.
+Vitest + React Testing Library + Jest DOM configurados; 7 archivos de prueba con 14 tests aprobados; cobertura 84.44 %; scripts `test`/`test:coverage`; `.gitignore` actualizado; `vercel.json` listo; pipeline CI en GitHub Actions.
 
 ### Falta para cerrar al 100 %
 
-1. Commit, remote y push a GitHub
-2. Despliegue en Vercel con URL pública
+1. Commit, remote y push a GitHub (activará CI automáticamente)
+2. Despliegue en Vercel con URL pública (CD automático tras push)
 3. Informe PDF con capturas
-4. CI/CD opcional (`.github/workflows/`)
 
 ---
 

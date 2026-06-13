@@ -73,7 +73,8 @@ Reporte HTML generado en `coverage/` (excluido por `.gitignore` L18).
 | 7 archivos `.test.jsx` | ✅ | Glob verificado en `src/` |
 | Mock API con `vi.fn()` | ✅ | `personaje.test.jsx` L5-15 |
 | Scripts npm | ✅ | `package.json` L11-13: `test`, `test:watch`, `test:coverage` |
-| Build producción | ✅ | `npm run build` → `✓ built in 571ms` |
+| Pipeline CI GitHub Actions | ✅ | `.github/workflows/ci.yml` |
+| Build producción | ✅ | `npm run build` → exit code 0 |
 | `.gitignore` actualizado | ✅ | `.gitignore` L11-21: `node_modules/`, `dist/`, `coverage/`, `.env`, `*.log` |
 
 ---
@@ -115,7 +116,7 @@ Reporte HTML generado en `coverage/` (excluido por `.gitignore` L18).
 | `.env` en `.gitignore` | ✅ Existe y funciona | `.gitignore` L21 | `.gitignore` |
 | Repositorio GitHub | ⚠️ Existe parcialmente | `.git/` existe; `git status`: *No commits yet on main*; sin `remote` configurado | — |
 | Configuración Vercel | ⚠️ Existe parcialmente | `vercel.json` L1-5 con rewrites SPA; sin URL de despliegue en el proyecto | `vercel.json` |
-| Flujo CI/CD | ❌ No existe | Directorio `.github/` no existe | — |
+| Flujo CI/CD | ✅ Existe y funciona | `.github/workflows/ci.yml`: `push`/`pull_request` en `main`/`master`, Node 20, `npm ci`, `npm run test` (Vitest), `npm run build`. Verificado localmente con los mismos comandos → exit code 0. | `.github/workflows/ci.yml` |
 | Informe PDF | ❌ No existe | No hay archivo PDF en el repositorio | — |
 
 ---
@@ -126,7 +127,8 @@ Reporte HTML generado en `coverage/` (excluido por `.gitignore` L18).
 | ------- | --------- |
 | `npm run test` | Exit code 0 — 7 files, 14 passed |
 | `npm run test:coverage` | Exit code 0 — Statements 84.44 % |
-| `npm run build` | Exit code 0 — `✓ built in 571ms` |
+| `npm run build` | Exit code 0 — `✓ built in 1.18s` |
+| `npm ci && npm run test && npm run build` | Exit code 0 — simula pipeline CI |
 | `git status -sb` | `## No commits yet on main` — archivos sin commitear |
 
 ---
@@ -145,6 +147,7 @@ Reporte HTML generado en `coverage/` (excluido por `.gitignore` L18).
 | 8 | Aplicación local | Capturas de rutas en navegador (`npm run dev`) |
 | 9 | GitHub | Captura del repositorio remoto *(cuando se suba)* |
 | 10 | Vercel | Captura de *Deployment Completed* *(cuando se despliegue)* |
+| 11 | GitHub Actions | Captura de workflow CI en verde *(tras push a GitHub)* |
 
 ---
 
@@ -165,15 +168,15 @@ Reporte HTML generado en `coverage/` (excluido por `.gitignore` L18).
 - 7 archivos de prueba con **14 tests aprobados** y **0 fallidos**
 - Cobertura: **84.44 %** statements/lines, **41.66 %** branches, **80 %** functions
 - Scripts `test`, `test:watch`, `test:coverage`
+- Pipeline CI: `.github/workflows/ci.yml` (Vitest + build en push/PR)
 - `.gitignore` preparado para GitHub
-- `vercel.json` con rewrites SPA
+- `vercel.json` con rewrites SPA (CD al conectar Vercel)
 
 ### Falta para cerrar el laboratorio al 100 %
 
-1. **GitHub:** crear commit inicial, configurar `remote` y `git push` al repositorio remoto
-2. **Vercel:** importar repo, desplegar y documentar URL pública
-3. **Informe PDF:** elaborar con capturas de pruebas, cobertura y despliegue
-4. **CI/CD (opcional):** crear `.github/workflows/ci.yml`
+1. **GitHub:** crear commit inicial, configurar `remote` y `git push` (activará CI en Actions)
+2. **Vercel:** importar repo, desplegar y documentar URL pública (CD automático)
+3. **Informe PDF:** elaborar con capturas de pruebas, cobertura, CI y despliegue
 
 ---
 
